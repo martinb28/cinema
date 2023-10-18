@@ -4,7 +4,7 @@
 fetch('https://online-movie-database.p.rapidapi.com/auto-complete?q=clint%20eastwood', {
     "method": "GET",
     "headers": {
-        'X-RapidAPI-Key': '6331b0a8abmshd156658c7dd8d4bp1bc4dbjsn8e61209b98c8',
+        'X-RapidAPI-Key': '12e59f1c31msh1c139912d0de85fp1214c0jsnc0f33809d789',
  		'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
     }
 })
