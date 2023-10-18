@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon2.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <title>Cinema</title>
+</head>
+
+<body>
+    <header id="idheader"></header>
+    
+    <h1 class="titulo">Contacto</h1>
+    <main>
+            <section class="form-container">
+                <form action="" method="POST" onsubmit="return validarFormulario()">
+                    <h2>Registrate para recibir las novedades</h2>
+                    <label for="nombre">Nombre: *</label>
+                    <input type="text" name="nombre" id="nombre" >
+                    
+                    <label for="apellido">Apellido: *</label>
+                    <input type="text" name="apellido" id="apellido" >
+                    
+                    <label for="correo">e-Mail: *</label>
+                    <input type="correo" name="correo" id="correo" placeholder="ejemplo@correo.com" >
+                    
+                    <label for="edad">Edad: *</label>
+                    <input type="number" name="edad" id="edad">
+                    
+                    <label for="fecnac">Fecha de Nacimiento:</label>
+                    <input type="date" name="fecnac" id="fecnac">
+                    
+                    <p class="campos-obligatorios">* Campos obligatorios</p>
+                    <input type="submit" value="Enviar Datos">
+                    <input type="reset" value="Borrar Datos">
+                </form>
+                <form action="" method="POST" onsubmit="return validarFormulario_contacto()">
+                    <h2>Formulario de contacto</h2>                
+                    <label for="nombre">Nombre: *</label>
+                    <input type="text" name="nombre" id="nombre_contacto" >
+                    
+                    <label for="apellido">Apellido: *</label>
+                    <input type="text" name="apellido" id="apellido_contacto" >
+                    
+                    <label for="correo">e-Mail: *</label>
+                    <input type="correo" name="correo" id="correo_contacto" placeholder="ejemplo@correo.com" >
+                    
+                    <label for="comentarios">Consulta: *</label>
+                    <textarea name="comentarios" id="comentarios_contacto"  placeholder="Escriba su consulta..."></textarea>
+                    <p class="campos-obligatorios">* Campos obligatorios</p>
+                    <input type="submit" value="Enviar comentarios">
+                    <input type="reset" value="Borrar">
+                </form>
+            </section>
+
+            <h2 class="titulo">Nuestro Equipo</h2>
+            <section class="contenedor-equipo" id="contenido">
+            </section>
+            
+    </main>
+            <h2 class="titulo">¿Donde estamos?</h2>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.5706474082294!2d-65.26985252546088!3d-26.821796489409515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225cdcab3eadeb%3A0xd7757ecff290d4da!2sPortal%20Tucum%C3%A1n!5e0!3m2!1ses!2sar!4v1694354293838!5m2!1ses!2sar"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+    <footer class="footer" id="idfooter"></footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/registro.js"></script>
+</body>
+</html>
