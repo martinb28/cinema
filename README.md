@@ -1,4 +1,4 @@
-# README - Sitio Web del Cine [Nombre del Cine]
+# README - Sitio Web del Cine Cinema
 
 ¡Bienvenido al repositorio del sitio web del cine Cinema! Este README proporciona una breve descripción del proyecto
 
