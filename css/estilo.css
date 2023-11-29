@@ -208,6 +208,7 @@ header {
   input[type="correo"],
   input[type="number"],  
   input[type="date"],
+  input[type="password"],
   textarea {
     width: 100%;
     padding: 10px;
