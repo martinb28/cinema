@@ -93,20 +93,6 @@ class Listado_usuarios:
         clientes = self.cursor.fetchall()
         return clientes
 
-    # def listar_usuarios(self):
-    #     usuarios = self.cursor.fetchall()
-    #     for usuario in usuarios:
-    #         print("-" * 50)
-    #         print(f"nombre.....: {usuario['Nombre']}")
-    #         print(f"apellido: {usuario['Apellido']}")
-    #         print(f"correo...: {usuario['Correo']}")
-    #         print(f"clave.....: {usuario['Clave']}")
-    #         print(f"DNI.....: {usuario['Dni']}")
-    #         print(f"edad.....: {usuario['Edad']}")
-    #         print(f"fecha de nacimiento..: {usuario['FecNac']}")
-    #         print(f"imagen..: {usuario['Imagen']}")
-    #         print("-" * 50)
-
     def eliminar_usuario(self, dni):
         self.cursor.execute(f"DELETE FROM Clientes where Dni = {dni}")
         self.conn.commit()
