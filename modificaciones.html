@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initialscale=1.0">
-    <title>Modificar Usuario</title>
-    <link rel="stylesheet" href="static/css/estilos.css">
-</head>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/estilos.css">
+      <title>Panel administrador</title>
 
-<body>
-    <h1>Modificar Usuario</h1>
-    
+  </head>
+
+  <body>
+    <h1>Modificar datos de los usuarios</h1>    
     <div id="app">
         <form @submit.prevent="obtenerUsuario">
-            <label for="id_usuario">DNI:</label>
-            <input type="number" v-model="id_usuario" required><br>
-            <button type="submit">Modificar usuario</button>
-            <a href="index.html">Menu principal</a>
+            <label for="dni">DNI:</label>
+            <input type="number" v-model="dni" id="dni" required>
+            <br>
+            <button type="submit">Modificar Usuario</button>
+            <a href="admin.html">Menu principal</a>
         </form>
         <div v-if="mostrarDatosUsuario">
-            <h2>Datos del usuario</h2>
+            <h2>Datos del Usuario</h2>
+            
             <form @submit.prevent="guardarCambios">
-                <label for="nombreModificar">Nombre:</label>
-                <input type="text" id="nombreModificar" vmodel="nombre" required><br>
-                <label for="apellidoModificar">Apellido:</label>
-                <input type="text" id="apellidoModificar" vmodel="apellido" required><br>
-                <label for="correoModificar">Correo:</label>
-                <input type="text" id="correoModificar" vmodel="correo" required><br>
-                <label for="edadModificar">Edad:</label>
-                <input type="number" id="edadModificar" vmodel="edad" required><br>
-                <!-- Imagen actual del producto -->
-                <img v-if="imagen_url && !imagenSeleccionada" :src="'static/img/' + imagen_url"
-                    alt="Imagen del producto" style="max-width: 200px;">
-                <!-- Vista previa de la nueva imagen seleccionada -->
-                <img v-if="imagenSeleccionada" :src="imagenUrlTemp" alt="Vista previa de la nueva imagen"
-                    style="max-width: 200px;">
-                <!-- Input para nueva imagen -->
-                <label for="nuevaImagen">Nueva Foto:</label>
-                <input type="file" id="nuevaImagen" @change="seleccionarImagen"><br>
-                <label for="fecnacModificar">Fecha de Nacimiento:</label>
-                <input type="date" id="fecnacModificar" vmodel="fecnac" required><br>
-                <button type="submit">Guardar Cambios</button>
-                <a href="modificaciones.html">Cancelar</a>
+            <label for="nombreModificar">Nombre:</label>
+            <input type="text" id="nombreModificar" v-model="nombre" required>
+            <br>
+            <label for="apellidoModificar">Apellido:</label>
+            <input type="text" id="apellidoModificar" v-model="apellido" required>
+            <br>
+            <label for="correoModificar">Correo:</label>
+            <input type="correo" id="correoModificar" v-model="correo" required>
+            <br>
+            <br>
+            <label for="claveModificar">clave:</label>
+            <input type="text" id="claveModificar" v-model="clave" required>
+            <br>
+            <br>
+            <label for="edadModificar">Edad:</label>
+            <input type="number" id="edadModificar" v-model="edad" required>
+            <br>
+            <br>
+            <label for="fecnacModificar">Fecha de nacimiento:</label>
+            <input type="date" id="fecnacModificar" v-model="fecnac" required>
+            <br>         
+            <br>
+            <button type="submit">Guardar Cambios</button>
+            <a href="modificaciones.html">Cancelar</a>
             </form>
         </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
-    <script src="modificaciones.js"></script>
-</body>
-
+    <script src="./js/modificaciones.js"></script>
+    </body>
 </html>

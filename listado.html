@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initialscale=1.0">
-    <title>Listado de Productos</title>
-    <link rel="stylesheet" href="static/css/estilos.css">
-</head>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/estilos.css">
+      <title>Listado de usuarios</title>
 
-<body>
+  </head>
+
+  <body>
     <h1>Listado de Usuarios</h1>
+
     <table>
-        <thead>
-            <tr>
-                <th>DNI</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th align="right">Edad</th>
-                <th>Imagen</th>
-                <th align="right">Fecha de Nacimiento</th>
-            </tr>
-        </thead>
+      <thead>
+        <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Clave</th>
+        <th>DNI</th>
+        <th>Edad</th>
+        <th>FecNac</th>
+        <th align="right">Imagen</th>        
+        </tr>
+      </thead>
         <tbody id="tablaUsuarios"> </tbody>
     </table>
-    <div class="contenedor-centrado">
-        <a href="index.html">Menu principal</a>
-    </div>
-    <script src="listado.js"></script>
-</body>
-
+        <div class="contenedor-centrado">
+        <a href="admin.html">Menu principal</a>
+        </div>
+        <script src="./js/listado.js"></script>
+  </body>
 </html>
