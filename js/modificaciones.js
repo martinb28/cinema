@@ -10,14 +10,12 @@ const app = Vue.createApp({
             dni: '',
             edad: '',
             fecnac: '',
-            imagen_url: '',
-            imagenUrlTemp: null,
             mostrarDatosUsuario: false,
         };
     },
     methods: {
         obtenerUsuario() {
-            fetch(URL + '/usuarios/' + this.dni, {method: 'GET'})
+            fetch(`${URL}usuarios/${this.dni}`, {method: 'GET'})
             .then(response => {
                 if (response.ok) {
                     return response.json()
@@ -33,18 +31,12 @@ const app = Vue.createApp({
                 this.dni = data.dni;
                 this.edad = data.edad;
                 this.fecnac = data.fecnac;
-                this.imagen_url = data.imagen_url;
                 this.mostrarDatosUsuario = true;
             })
             .catch(error => {
                 console.log(error);
                 alert('DNI no encontrado.');
             })
-        },
-        seleccionarImagen(event) {
-            const file = event.target.files[0];
-            this.imagenSeleccionada = file;
-            this.imagenUrlTemp = URL.createObjectURL(file);
         },
         guardarCambios() {
             const formData = new FormData();
@@ -53,13 +45,9 @@ const app = Vue.createApp({
             formData.append('correo', this.correo);
             formData.append('clave', this.clave);                
             formData.append('edad', this.edad);
-            formData.append('fecnac', this.fecnac);
-            
-            if (this.imagenSeleccionada) {
-                formData.append('imagen', this.imagenSeleccionada,
-                this.imagenSeleccionada.name);
-            }
-            fetch(URL + '/usuarios/' + this.codigo, {
+            formData.append('fecnac', this.fecnac);            
+
+            fetch(`${URL}usuarios/${this.dni}`, {
                 method: 'PUT',
                 body: formData,
             })
@@ -87,9 +75,6 @@ const app = Vue.createApp({
             this.dni = '';
             this.edad = '';
             this.fecnac = '';
-            this.imagen_url = '';
-            this.imagenSeleccionada = null;
-            this.imagenUrlTemp = null;
             this.mostrarDatosUsuario = false;
         }
     }

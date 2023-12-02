@@ -11,7 +11,6 @@ document.getElementById('formulario').addEventListener('submit',function (event)
     formData.append('dni', document.getElementById('dni').value);
     formData.append('edad', document.getElementById('edad').value);
     formData.append('fecnac', document.getElementById('fecnac').value);
-    formData.append('imagen', document.getElementById('imagen').files[0]);
 
     fetch(URL + '/usuarios', {
         method: 'POST',
@@ -30,7 +29,7 @@ document.getElementById('formulario').addEventListener('submit',function (event)
         alert('Usuario registrado correctamente');
     })
     .catch(function(error){
-        alert('Error al registrar el usuario catch');
+        alert('Error al registrar el usuario');
         console.error('Error: ',error);
     })
     .finally(function () {
@@ -41,6 +40,5 @@ document.getElementById('formulario').addEventListener('submit',function (event)
         document.getElementById('dni').value = "";
         document.getElementById('edad').value = "";
         document.getElementById('fecnac').value = "";
-        document.getElementById('imagen').value = "";
     });
 })

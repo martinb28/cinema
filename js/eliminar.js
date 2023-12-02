@@ -33,7 +33,7 @@ const app = Vue.createApp({
                 fetch(URL + `/usuarios/${dni}`, { method: 'DELETE' })
                 .then(response => {
                     if (response.ok) {
-                        this.usuarios =this.usuarios.filter(usuario => usuario.Dni !== dni);
+                        this.usuarios =this.usuarios.filter(usuario => usuario.dni !== dni);
                         console.log(this.usuarios)
                         alert('usuario eliminado correctamente.');
                     }

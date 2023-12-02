@@ -13,15 +13,13 @@ fetch(URL + '/usuarios')
 
         for (let usuario of data) {
             let fila = document.createElement('tr');
-            fila.innerHTML = '<td>' + usuario.Nombre + '</td>' +
-            '<td>' + usuario.Apellido + '</td>' +
-            '<td align="right">' + usuario.Correo + '</td>' +
-            '<td align="right">' + usuario.Clave + '</td>' +
-            '<td align="right">' + usuario.Dni + '</td>' +
-            '<td align="right">' + usuario.Edad + '</td>' +
-            '<td align="right">' + usuario.FecNac + '</td>' +
-            '<td><img src=./img/' + usuario.Imagen +
-            'alt="Imagen del producto" style="width: 100px;"></td>';
+            fila.innerHTML = '<td>' + usuario.nombre + '</td>' +
+            '<td>' + usuario.apellido + '</td>' +
+            '<td align="right">' + usuario.correo + '</td>' +
+            '<td align="right">' + usuario.clave + '</td>' +
+            '<td align="right">' + usuario.dni + '</td>' +
+            '<td align="right">' + usuario.edad + '</td>' +
+            '<td align="right">' + usuario.fecnac + '</td>';
             
             
             tablaUsuarios.appendChild(fila);

@@ -26,12 +26,12 @@
             </thead>
             <tbody>
                 <tr v-for="usuario in usuarios">
-                    <td>{{ usuario.Nombre }}</td>
-                    <td>{{ usuario.Apellido }}</td>
-                    <td>{{ usuario.Correo }}</td>
-                    <td align="right">{{ usuario.Clave }}</td>
-                    <td>{{ usuario.Dni }}</td>
-                    <td><button @click="eliminarUsuario(usuario.Dni)">Eliminar</button></td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.apellido }}</td>
+                    <td>{{ usuario.correo }}</td>
+                    <td align="right">{{ usuario.clave }}</td>
+                    <td>{{ usuario.dni }}</td>
+                    <td><button @click="eliminarUsuario(usuario.dni)">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>
