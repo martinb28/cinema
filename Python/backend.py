@@ -74,26 +74,6 @@ class Listado_usuarios:
         self.conn.commit()
         return self.cursor.rowcount > 0
 
-    # def modificar_usuario(self, nuevo_nombre, nuevo_apellido, nuevo_correo, nueva_clave, dni, nueva_edad,
-    #                       nueva_fecnac, nueva_imagen):
-    #     sql = f"UPDATE Clientes SET Nombre = '{nuevo_nombre}', Apellido = '{nuevo_apellido}', Correo = '{nuevo_correo}', Clave = '{nueva_clave}', Edad = '{nueva_edad}',FecNac =  '{nueva_fecnac}', Imagen = '{nueva_imagen}' WHERE Dni = {dni}"
-    #     self.cursor.execute(sql)
-    #     self.conn.commit()
-    #     return self.cursor.rowcount > 0
-
-    # def mostrar_usuario(self, dni):
-    #     usuario = self.consultar_usuario(dni)
-    #     if usuario:
-    #         print("-" * 50)
-    #         print(f"nombre.....: {usuario['Nombre']}")
-    #         print(f"apellido: {usuario['Apellido']}")
-    #         print(f"correo...: {usuario['Correo']}")
-    #         print(f"clave.....: {usuario['Clave']}")
-    #         print(f"DNI.....: {usuario['Dni']}")
-    #         print(f"edad.....: {usuario['Edad']}")
-    #         print(f"fecha de nacimiento..: {usuario['FecNac']}")
-    #         print(f"imagen..: {usuario['Imagen']}")
-    #         print("-" * 50)
 
     def listar_usuarios(self):
         self.cursor.execute("SELECT * FROM Clientes")
@@ -136,25 +116,25 @@ def listar_usuarios_route():
     usuarios = clientes.listar_usuarios()
     return jsonify(usuarios)
 
-# @app.route("/modificar_usuario/<int:dni>", methods=["PUT"])
-# def modificar_producto_route(dni):
-#     nuevo_nombre = request.form.get("nombre")
-#     nuevo_apellido = request.form.get("apellido")
-#     nuevo_correo = request.form.get("correo")
-#     nueva_clave = request.form.get("clave")
-#     nueva_edad = request.form.get("edad")
-#     nueva_fecnac = request.form.get("fecnac")
+@app.route("/usuarios/<int:Dni>", methods=["PUT"])
+def modificar_usuario_route(dni):
+    nuevo_nombre = request.form.get("nombre")
+    nuevo_apellido = request.form.get("apellido")
+    nuevo_correo = request.form.get("correo")
+    nueva_clave = request.form.get("clave")
+    nueva_edad = request.form.get("edad")
+    nueva_fecnac = request.form.get("fecnac")
 
-#     imagen = request.files['imagen']
-#     nombre_imagen = secure_filename(imagen.filename)
-#     nombre_base, extension = os.path.splitext(nombre_imagen)
-#     nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
-#     imagen.save(os.path.join(ruta_destino, nombre_imagen))
+    imagen = request.files['imagen']
+    nombre_imagen = secure_filename(imagen.filename)
+    nombre_base, extension = os.path.splitext(nombre_imagen)
+    nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
+    imagen.save(os.path.join(ruta_destino, nombre_imagen))
     
-#     if clientes.modificar_usuario(dni, nuevo_nombre, nuevo_apellido, nuevo_correo, nueva_clave, nueva_edad, nueva_fecnac, nombre_imagen,):
-#         return jsonify({"mensaje": "Usuario modificado"}), 200
-#     else:
-#         return jsonify({"mensaje": "Usuario no encontrado"}), 404
+    if clientes.modificar_usuario(dni, nuevo_nombre, nuevo_apellido, nuevo_correo, nueva_clave, nueva_edad, nueva_fecnac, nombre_imagen,):
+        return jsonify({"mensaje": "Usuario modificado"}), 200
+    else:
+        return jsonify({"mensaje": "Usuario no encontrado"}), 404
 
 @app.route("/usuarios/<int:Dni>", methods=["DELETE"])
 def eliminar_usuario_route(Dni):

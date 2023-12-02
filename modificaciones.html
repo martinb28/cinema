@@ -11,18 +11,17 @@
   </head>
 
   <body>
-    <h1>Modificar Productos del Inventario</h1>
-    <h3>Codo a Codo 2023</h3>
+    <h1>Modificar datos de los usuarios</h1>    
     <div id="app">
-        <form @submit.prevent="obtenerProducto">
-            <label for="codigo">Código:</label>
-            <input type="text" v-model="codigo" required>
+        <form @submit.prevent="obtenerUsuario">
+            <label for="dni">DNI:</label>
+            <input type="number" v-model="dni" required>
             <br>
-            <button type="submit">Modificar Producto</button>
+            <button type="submit">Modificar Usuario</button>
             <a href="admin.html">Menu principal</a>
         </form>
-        <div v-if="mostrarDatosProducto">
-            <h2>Datos del Producto</h2>
+        <div v-if="mostrarDatosUsuario">
+            <h2>Datos del Usuario</h2>
             
             <form @submit.prevent="guardarCambios">
             <label for="nombreModificar">Nombre:</label>
@@ -36,7 +35,7 @@
             <br>
             <br>
             <label for="claveModificar">clave:</label>
-            <input type="text" id="correoModificar" v-model="clave" required>
+            <input type="text" id="claveModificar" v-model="clave" required>
             <br>
             <br>
             <label for="edadModificar">Edad:</label>
@@ -44,9 +43,9 @@
             <br>
             <br>
             <label for="fecnacModificar">Fecha de nacimiento:</label>
-            <input type="text" id="correoModificar" v-model="fecnac" required>
+            <input type="text" id="fecnacModificar" v-model="fecnac" required>
             <br>         
-            <img v-if="imagen_url && !imagenSeleccionada":src="'static/img/' + imagen_url" alt="Imagen del producto" style="max-width: 200px;">            
+            <img v-if="imagen_url && !imagenSeleccionada":src="'static/img/' + imagen_url" alt="Imagen del usuario" style="max-width: 200px;">            
             <img v-if="imagenSeleccionada" :src="imagenUrlTemp" alt="Vista previa de la nueva imagen" style="max-width: 200px;">            
             <label for="nuevaImagen">Nueva Imagen:</label>
             <input type="file" id="nuevaImagen" @change="seleccionarImagen">

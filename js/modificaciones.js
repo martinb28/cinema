@@ -80,14 +80,17 @@ const app = Vue.createApp({
             });
         },
         limpiarFormulario() {
-            this.codigo = '';
-            this.descripcion = '';
-            this.cantidad = '';
-            this.precio = '';
+            this.nombre = '';
+            this.apellido = '';
+            this.correo = '';
+            this.clave = '';
+            this.dni = '';
+            this.edad = '';
+            this.fecnac = '';
             this.imagen_url = '';
             this.imagenSeleccionada = null;
             this.imagenUrlTemp = null;
-            this.mostrarDatosProducto = false;
+            this.mostrarDatosUsuario = false;
         }
     }
 });
