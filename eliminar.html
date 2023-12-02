@@ -2,43 +2,52 @@
 <html lang="es">
 
   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      < <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="css/estilos.css">
+      <link rel="shortcut icon" href="img/favicon2.png" type="image/x-icon">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="stylesheet" href="css/estilo.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
       <script src="https://unpkg.com/vue@next"></script>
       <title>Panel administrador</title>
 
   </head>
 
     <body>
-        <h1>Baja de usuarios</h1>
+        <header id="idheader"></header>
+        <h1 class="titulo1">Baja de usuarios</h1>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>mail</th>
-                    <th align="right">clave</th>                    
-                    <th>DNI</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="usuario in usuarios">
-                    <td>{{ usuario.Nombre }}</td>
-                    <td>{{ usuario.Apellido }}</td>
-                    <td>{{ usuario.Correo }}</td>
-                    <td align="right">{{ usuario.Clave }}</td>
-                    <td>{{ usuario.Dni }}</td>
-                    <td><button @click="eliminarUsuario(usuario.Dni)">Eliminar</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="tabus">
+            <table class="table1">
+                <thead class="thead1">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>mail</th>
+                        <th align="right">clave</th>                    
+                        <th>DNI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="usuario in usuarios">
+                        <td>{{ usuario.Nombre }}</td>
+                        <td>{{ usuario.Apellido }}</td>
+                        <td>{{ usuario.Correo }}</td>
+                        <td align="right">{{ usuario.Clave }}</td>
+                        <td>{{ usuario.Dni }}</td>
+                        <td><button @click="eliminarUsuario(usuario.Dni)">Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
             <div class="contenedor-centrado">
-                <a href="admin.html">Menu principal</a>
+                <a class="B" href="admin.html">Menu principal</a>
             </div>
 
         <script src="./js/eliminar.js"></script>
+        <footer class="footer" id="idfooter"></footer>
+        <script src="./js/main.js"></script>
     </body>
 </html>

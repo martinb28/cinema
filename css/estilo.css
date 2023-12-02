@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;    
     font-family: 'Maven Pro', sans-serif;
+   
   }
 
 body {
@@ -373,7 +374,7 @@ iframe {
   }
 }
 
-/*======FIN SALAS======*/
+/*======FIN SALAS======..*/
 
 /*======INICIO PROX======*/
 .proximos-container {
@@ -484,12 +485,119 @@ h2 {
   margin-bottom: 20px;
   margin-top: auto;
 }
-/*======FIN INDEX======*/
+
+/*********MENU ADMIN***********/
+.titulo1 {
+  background-color: #F26363;
+  margin: 1%;
+  text-align: center;
+  margin-bottom: 8%;
+}
+.contenedor-centrado {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+ 
+}
+
+.table {
+  max-width: 20%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color:rgb(165, 165, 165);
+  border: 1px solid lightslategray;
+  border-radius: 10px;
+}
 
 
+.A {
+  padding: 8px;
+  margin: 4px;
+  background-color: #F26363;
+  color: yellow;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 85%;
+}
+
+.A:hover {
+  background-color:#333;
+}
+
+/******** Regreso al panel admin, menu *****************/
+
+.B{
+  padding: 8px;
+  margin: 4px;
+  color: yellow;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 85%;
+}
+.B:hover {
+  color:#333;
+}
+/*************** listado.html******************/
+
+.tabus {
+  margin: 20px;
+  
+}
+
+.table1 {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+ 
+}
+
+.thead1 {
+  background-color: rgb(165, 165, 165);;
+  color:black;
+  
+}
+
+th, td {
+  border: 1px solid #d1cfcf;
+  padding: 8px;
+  text-align: center;
+}
+
+/******************modificaciones.html***********/
 
 
+.buscdni,
+.tabus1 {
+  width: 100%; 
+  box-sizing: border-box; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+form{
+  text-align: center;
+}
+*/
+button {
+  padding: 8px 15px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+ 
+}
 
 
+h2 {
+  color: #333;
+}
 
 
+/****************eliminar.html**************/
+/*reutilice codigo*/
