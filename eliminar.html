@@ -6,6 +6,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="css/estilos.css">
+      <script src="https://unpkg.com/vue@next"></script>
       <title>Panel administrador</title>
 
   </head>
@@ -18,26 +19,26 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Correo</th>
+                    <th>mail</th>
+                    <th align="right">clave</th>                    
                     <th>DNI</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="usuario in usuarios">
-                    <td>{{ usuario.nombre }}</td>
-                    <td>{{ usuario.apellido }}</td>
-                    <td>{{ usuario.correo }}</td>
-                    <td>{{ usuario.dni }}</td>
-                    <td>
-                        <button @click="eliminarUsuario(usuario.dni)">Eliminar</button>
-                    </td>
+                    <td>{{ usuario.Nombre }}</td>
+                    <td>{{ usuario.Apellido }}</td>
+                    <td>{{ usuario.Correo }}</td>
+                    <td align="right">{{ usuario.Clave }}</td>
+                    <td>{{ usuario.Dni }}</td>
+                    <td><button @click="eliminarUsuario(usuario.Dni)">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>
-        <div class="contenedor-centrado">
-            <a href="admin.html">Menu principal</a>
-        </div>
-        <script src="https://unpkg.com/vue@next"></script>
+            <div class="contenedor-centrado">
+                <a href="admin.html">Menu principal</a>
+            </div>
+
         <script src="./js/eliminar.js"></script>
     </body>
 </html>

@@ -51,7 +51,7 @@ class Listado_usuarios:
         if usuario_existe:
             return False
 
-        nombre_imagen = secure_filename(imagen.filename)  # Aplicar secure_filename aquí
+        nombre_imagen = secure_filename(imagen.filename) 
 
         ruta_imagen = os.path.join(ruta_destino, f"{nombre_imagen}_{int(time.time())}")
         imagen.save(ruta_imagen)
@@ -131,7 +131,7 @@ def agregar_usuario_route():
     else:
         return jsonify({"mensaje": "Usuario ya existente"}), 400
 
-@app.route("/listar_usuarios", methods=["GET"])
+@app.route("/usuarios", methods=["GET"])
 def listar_usuarios_route():
     usuarios = clientes.listar_usuarios()
     return jsonify(usuarios)
@@ -156,20 +156,12 @@ def listar_usuarios_route():
 #     else:
 #         return jsonify({"mensaje": "Usuario no encontrado"}), 404
 
-@app.route("/listar_usuarios/<int:dni>", methods=["DELETE"])
-def eliminar_usuario_route(dni):
-    usuario = clientes.consultar_usuario(dni)
-    if usuario:
-        ruta_imagen = os.path.join(ruta_destino, usuario['imagen_url'])
-        if os.path.exists(ruta_imagen):
-            os.remove(ruta_imagen)
-
-        if clientes.eliminar_usuario(dni):
-            return jsonify({"mensaje": "usuario eliminado"}), 200
-        else:
-            return jsonify({"mensaje": "Error al eliminar el usuario"}),500
+@app.route("/usuarios/<int:Dni>", methods=["DELETE"])
+def eliminar_usuario_route(Dni):
+    if clientes.eliminar_usuario(Dni):
+        return jsonify({"mensaje": "usuario eliminado"}), 200
     else:
-        return jsonify({"mensaje": "usuario no encontrado"}), 404
+        return jsonify({"mensaje": "Error al eliminar el usuario"}),500    
 
 if __name__ == "__main__":
     app.run(debug=True)

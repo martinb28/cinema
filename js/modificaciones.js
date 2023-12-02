@@ -17,7 +17,7 @@ const app = Vue.createApp({
     },
     methods: {
         obtenerUsuario() {
-            fetch(URL + '/modificar_usuario/' + this.dni, {method: 'GET'})
+            fetch(URL + '/usuarios/' + this.dni, {method: 'GET'})
             .then(response => {
                 if (response.ok) {
                     return response.json()
@@ -59,7 +59,7 @@ const app = Vue.createApp({
                 formData.append('imagen', this.imagenSeleccionada,
                 this.imagenSeleccionada.name);
             }
-            fetch(URL + '/modificar_usuario/' + this.codigo, {
+            fetch(URL + '/usuarios/' + this.codigo, {
                 method: 'PUT',
                 body: formData,
             })

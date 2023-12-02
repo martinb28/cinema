@@ -1,6 +1,6 @@
 const URL = "http://127.0.0.1:5000/"
 
-fetch(URL + '/listar_usuarios')
+fetch(URL + '/usuarios')
     .then(function (response) {
         if (response.ok) {
             return response.json();
