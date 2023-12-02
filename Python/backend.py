@@ -66,27 +66,34 @@ class Listado_usuarios:
     def consultar_usuario(self, dni):
         self.cursor.execute(f"SELECT * FROM Clientes where Dni = {dni}")
         return self.cursor.fetchone()
-
-    def modificar_usuario(self, nuevo_nombre, nuevo_apellido, nuevo_correo, nueva_clave, dni, nueva_edad,
-                          nueva_fecnac, nueva_imagen):
-        sql = f"UPDATE Clientes SET Nombre = '{nuevo_nombre}', Apellido = '{nuevo_apellido}', Correo = '{nuevo_correo}', Clave = '{nueva_clave}', Edad = '{nueva_edad}',FecNac =  '{nueva_fecnac}', Imagen = '{nueva_imagen}' WHERE Dni = {dni}"
-        self.cursor.execute(sql)
+    
+    def modificar_usuario(self, dni, nuevo_nombre, nuevo_apellido, nuevo_correo, nueva_clave, nueva_edad, nueva_fecnac, nueva_imagen):
+        sql = "UPDATE Clientes SET Nombre = %s, Apellido = %s, Correo = %s, Clave = %s, Edad = %s, FecNac = %s, Imagen = %s WHERE Dni = %s"
+        valores = (nuevo_nombre, nuevo_apellido, nuevo_correo, nueva_clave, nueva_edad, nueva_fecnac, nueva_imagen, dni)
+        self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
 
-    def mostrar_usuario(self, dni):
-        usuario = self.consultar_usuario(dni)
-        if usuario:
-            print("-" * 50)
-            print(f"nombre.....: {usuario['Nombre']}")
-            print(f"apellido: {usuario['Apellido']}")
-            print(f"correo...: {usuario['Correo']}")
-            print(f"clave.....: {usuario['Clave']}")
-            print(f"DNI.....: {usuario['Dni']}")
-            print(f"edad.....: {usuario['Edad']}")
-            print(f"fecha de nacimiento..: {usuario['FecNac']}")
-            print(f"imagen..: {usuario['Imagen']}")
-            print("-" * 50)
+    # def modificar_usuario(self, nuevo_nombre, nuevo_apellido, nuevo_correo, nueva_clave, dni, nueva_edad,
+    #                       nueva_fecnac, nueva_imagen):
+    #     sql = f"UPDATE Clientes SET Nombre = '{nuevo_nombre}', Apellido = '{nuevo_apellido}', Correo = '{nuevo_correo}', Clave = '{nueva_clave}', Edad = '{nueva_edad}',FecNac =  '{nueva_fecnac}', Imagen = '{nueva_imagen}' WHERE Dni = {dni}"
+    #     self.cursor.execute(sql)
+    #     self.conn.commit()
+    #     return self.cursor.rowcount > 0
+
+    # def mostrar_usuario(self, dni):
+    #     usuario = self.consultar_usuario(dni)
+    #     if usuario:
+    #         print("-" * 50)
+    #         print(f"nombre.....: {usuario['Nombre']}")
+    #         print(f"apellido: {usuario['Apellido']}")
+    #         print(f"correo...: {usuario['Correo']}")
+    #         print(f"clave.....: {usuario['Clave']}")
+    #         print(f"DNI.....: {usuario['Dni']}")
+    #         print(f"edad.....: {usuario['Edad']}")
+    #         print(f"fecha de nacimiento..: {usuario['FecNac']}")
+    #         print(f"imagen..: {usuario['Imagen']}")
+    #         print("-" * 50)
 
     def listar_usuarios(self):
         self.cursor.execute("SELECT * FROM Clientes")
@@ -128,6 +135,41 @@ def agregar_usuario_route():
 def listar_usuarios_route():
     usuarios = clientes.listar_usuarios()
     return jsonify(usuarios)
+
+# @app.route("/modificar_usuario/<int:dni>", methods=["PUT"])
+# def modificar_producto_route(dni):
+#     nuevo_nombre = request.form.get("nombre")
+#     nuevo_apellido = request.form.get("apellido")
+#     nuevo_correo = request.form.get("correo")
+#     nueva_clave = request.form.get("clave")
+#     nueva_edad = request.form.get("edad")
+#     nueva_fecnac = request.form.get("fecnac")
+
+#     imagen = request.files['imagen']
+#     nombre_imagen = secure_filename(imagen.filename)
+#     nombre_base, extension = os.path.splitext(nombre_imagen)
+#     nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
+#     imagen.save(os.path.join(ruta_destino, nombre_imagen))
+    
+#     if clientes.modificar_usuario(dni, nuevo_nombre, nuevo_apellido, nuevo_correo, nueva_clave, nueva_edad, nueva_fecnac, nombre_imagen,):
+#         return jsonify({"mensaje": "Usuario modificado"}), 200
+#     else:
+#         return jsonify({"mensaje": "Usuario no encontrado"}), 404
+
+@app.route("/listar_usuarios/<int:dni>", methods=["DELETE"])
+def eliminar_usuario_route(dni):
+    usuario = clientes.consultar_usuario(dni)
+    if usuario:
+        ruta_imagen = os.path.join(ruta_destino, usuario['imagen_url'])
+        if os.path.exists(ruta_imagen):
+            os.remove(ruta_imagen)
+
+        if clientes.eliminar_usuario(dni):
+            return jsonify({"mensaje": "usuario eliminado"}), 200
+        else:
+            return jsonify({"mensaje": "Error al eliminar el usuario"}),500
+    else:
+        return jsonify({"mensaje": "usuario no encontrado"}), 404
 
 if __name__ == "__main__":
     app.run(debug=True)

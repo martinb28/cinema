@@ -17,12 +17,12 @@ const app = Vue.createApp({
     },
     methods: {
         obtenerUsuario() {
-            fetch(URL + '/modificar_usuario/' + this.dni)
+            fetch(URL + '/modificar_usuario/' + this.dni, {method: 'GET'})
             .then(response => {
                 if (response.ok) {
                     return response.json()
                 } else {
-                    throw new Error('Error al obtener los datos del usuario.')
+                    throw new Error('Error al obtener los datos del usuario.');
                 }
             })
             .then(data => {
