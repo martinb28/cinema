@@ -2,12 +2,14 @@ function validarFormulario() {
     // Obtener los valores ingresados por el usuario
     let nombre = document.getElementById("nombre").value;
     let apellido = document.getElementById("apellido").value;
+    let clave = document.getElementById("clave").value;
     let correo = document.getElementById("correo").value;
     let edad = document.getElementById("edad").value;
+    let dni = document.getElementById("dni").value;
     
-    // Validar que los campos de nombre y apellido no estén vacíos
-    if (nombre === "" || apellido === "") {
-        alert("Por favor, ingrese su nombre y apellido.");
+    // Validar que los campos de nombre, apellido y password no estén vacíos
+    if (nombre === "" || apellido === "" || clave === "" || dni === "") {
+        alert("Por favor, ingrese su clave, DNI, nombre y apellido.");
         return false; 
     }
     
