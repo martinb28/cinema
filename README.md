@@ -30,7 +30,6 @@ Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con noso
 - [Ricardo Lopez Romano](https://github.com/RicardoLopezRomano)
 - [Martin Bugao](https://github.com/martinb28)
 - [Yesica Morleo](https://github.com/Yesikz)
-- [Juan Manuel Luciano](https://github.com/juanmaluciano93)
 
 
 ¡Esperamos que disfrutes explorando el sitio web del cine Cinema!
