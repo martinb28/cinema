@@ -20,7 +20,7 @@
     <h1 class="titulo">Contacto</h1>
     <main>
             <section class="form-container">
-                <form action="" method="POST" onsubmit="return validarFormulario()">
+                <form id="formulario" method="POST" onsubmit="return validarFormulario()" enctype="multipart/form-data">
                     <h2>Registrate para recibir las novedades</h2>
                     <label for="nombre">Nombre: *</label>
                     <input type="text" name="nombre" id="nombre" >
@@ -30,12 +30,21 @@
                     
                     <label for="correo">e-Mail: *</label>
                     <input type="correo" name="correo" id="correo" placeholder="ejemplo@correo.com" >
+
+                    <label for="password">Clave: *</label>
+                    <input type="password" name="password" id="clave" >
+                    
+                    <label for="dni">DNI: *</label>
+                    <input type="number" name="dni" id="dni" >
                     
                     <label for="edad">Edad: *</label>
                     <input type="number" name="edad" id="edad">
                     
                     <label for="fecnac">Fecha de Nacimiento:</label>
                     <input type="date" name="fecnac" id="fecnac">
+
+                    <label for="imagen">Adjunta tu foto de perfil:</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/*">
                     
                     <p class="campos-obligatorios">* Campos obligatorios</p>
                     <input type="submit" value="Enviar Datos">
@@ -75,5 +84,6 @@
 
     <script src="./js/main.js"></script>
     <script src="./js/registro.js"></script>
+    <script src="./js/abm.js"></script>
 </body>
 </html>

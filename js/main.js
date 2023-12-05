@@ -9,7 +9,8 @@ let header = `
         <li><a href="proximosestrenos.html">Proximos Estrenos</a></li>
         <li><a href="nuestrassalas.html">Nuestras Salas</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-    </ul>            
+        <li><a href="admin.html">Admin</a></li>
+    </ul>
 </nav>
 `
 document.getElementById("idheader").innerHTML = header
